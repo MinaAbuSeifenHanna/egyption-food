@@ -3,6 +3,7 @@ import { Poppins, Cairo } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/context/LangContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -34,11 +35,13 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${cairo.variable} antialiased min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300`}>
         <ThemeProvider>
           <LangProvider>
-            <Header />
-            <main className="flex-grow pt-16 md:pt-20">
-              {children}
-            </main>
-            <Footer />
+            <CartProvider>
+              <Header />
+              <main className="flex-grow pt-16 md:pt-20">
+                {children}
+              </main>
+              <Footer />
+            </CartProvider>
           </LangProvider>
         </ThemeProvider>
       </body>

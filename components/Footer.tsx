@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { useLang } from "@/context/LangContext";
 
-const WHATSAPP_URL = "https://wa.me/201020738214";
-const PHONE_NUM = "+20 102 073 8214";
+const WHATSAPP_URL = "https://wa.me/14696841106";
+const PHONE_NUM = "+1 (469) 684-1106";
 
 export default function Footer() {
   const { t, isRTL } = useLang();

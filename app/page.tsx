@@ -29,10 +29,10 @@ export default function Home() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden transition-colors duration-500">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/order/1.webp" 
+            src="/menu/headerphoto.jpg" 
             alt="Hero background"
             fill
-            className="object-cover opacity-20 grayscale mix-blend-multiply"
+            className="object-cover opacity-30 grayscale-0 mix-blend-normal"
             priority
           />
           {/* Theme-aware mesh gradients */}
@@ -109,9 +109,7 @@ export default function Home() {
                <div className="inline-block px-4 py-1 rounded-full bg-primary text-primary-foreground mb-6 font-black text-[10px] uppercase tracking-[0.3em]">{t("freshMade")}</div>
               <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-none uppercase">{t("available24")}</h2>
               <p className="text-muted-foreground text-lg md:text-xl font-bold mb-10 leading-relaxed uppercase tracking-tight">{t("available24Sub")}</p>
-              <div className="glass px-6 py-4 rounded-2xl inline-flex items-center gap-3">
-                <span className="text-2xl">🚀</span>
-                <span className="font-black text-xs uppercase tracking-widest">{t("fastDelivery")}</span>
+              <div className="glass px-6 py-4 rounded-2xl inline-flex items-center gap-3 invisible h-0">
               </div>
             </div>
             <Link

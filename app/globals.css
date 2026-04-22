@@ -31,57 +31,57 @@
 }
 
 :root {
-  /* LIGHT MODE (BRIGHT, AIRY, CLEAN) */
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  /* LIGHT MODE (PREMIUM TEAL & GOLD) */
+  --background: #fdfbf7; /* Warm Bone White */
+  --foreground: #0f1e1d; /* Deep Teal-Gray */
   
   --card: #ffffff;
-  --card-foreground: #0f172a;
+  --card-foreground: #0f1e1d;
   
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted: #f0f4f4; /* Very Light Teal */
+  --muted-foreground: #4b6a68;
   
-  --accent: #f5f3ff;
-  --accent-foreground: #7c3aed;
+  --accent: #f5f0e1; /* Very Light Gold */
+  --accent-foreground: #b39051;
   
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #7c3aed;
+  --ring: #2a514f;
   
-  --primary: #7c3aed;
+  --primary: #2a514f; /* Bebo Teal */
   --primary-foreground: #ffffff;
   
-  --secondary: #ec4899;
+  --secondary: #b39051; /* Bebo Gold */
   --secondary-foreground: #ffffff;
 
-  --shadow-soft-val: 0 8px 30px rgb(0 0 0 / 0.04);
+  --shadow-soft-val: 0 8px 30px rgb(42 81 79 / 0.08);
 }
 
 .dark {
-  /* DARK MODE (BALANCED SLATE) */
-  --background: #0f172a;
-  --foreground: #f1f5f9;
+  /* DARK MODE (ELEGANT DEEP TEAL) */
+  --background: #0f1e1d; /* Deep Teal */
+  --foreground: #f0f4f4;
   
-  --card: #1e293b;
-  --card-foreground: #f1f5f9;
+  --card: #162d2b; /* Slightly lighter deep teal */
+  --card-foreground: #f0f4f4;
   
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
+  --muted: #1e3a38;
+  --muted-foreground: #99c3c1;
   
-  --accent: #1e1b4b;
-  --accent-foreground: #c4b5fd;
+  --accent: #1e1b10; /* Very Dark Brown-Gold */
+  --accent-foreground: #c4a35a;
   
-  --border: #334155;
-  --input: #334155;
-  --ring: #d8b4fe;
+  --border: #1e3a38;
+  --input: #1e3a38;
+  --ring: #3d7a77;
   
-  --primary: #8b5cf6;
+  --primary: #3d7a77; /* Lighter Teal for dark mode visibility */
   --primary-foreground: #ffffff;
   
-  --secondary: #f472b6;
-  --secondary-foreground: #ffffff;
+  --secondary: #c4a35a; /* Lighter Gold */
+  --secondary-foreground: #0f1e1d;
 
-  --shadow-soft-val: 0 8px 30px rgb(0 0 0 / 0.2);
+  --shadow-soft-val: 0 8px 30px rgb(0 0 0 / 0.3);
 }
 
 @layer base {

@@ -1,16 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useLang } from "@/context/LangContext";
 import { useTheme } from "@/context/ThemeContext";
+import { useCart } from "@/context/CartContext";
 
-const WHATSAPP_URL = "https://wa.me/201020738214";
-const PHONE_NUM = "+20 102 073 8214";
+const WHATSAPP_URL = "https://wa.me/14696841106";
+const PHONE_NUM = "+1 (469) 684-1106";
 
 export default function Header() {
   const { lang, setLang, t, isRTL } = useLang();
   const { theme, toggleTheme } = useTheme();
+  const { cartCount } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -40,7 +43,15 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group transition-transform hover:scale-105 active:scale-95">
-            <span className="text-3xl filter drop-shadow-sm">🇪🇬</span>
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-border shadow-soft">
+              <Image 
+                src="/menu/headerphoto.jpg" 
+                alt="Egyptian Food Logo" 
+                fill 
+                className="object-cover"
+                sizes="48px"
+              />
+            </div>
             <div>
               <div
                 className={`font-black text-lg md:text-xl leading-tight transition-colors duration-300 ${
@@ -103,6 +114,24 @@ export default function Header() {
                 </svg>
               </div>
             </button>
+            
+            {/* Shopping Cart Icon */}
+            <Link
+              href="/cart"
+              className="p-2.5 rounded-xl transition-all duration-300 relative border border-border bg-muted/50 text-foreground hover:bg-accent hover:text-primary group"
+              aria-label="View Shopping Cart"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.225 3.675A1 1 0 006.775 18h10.45a1 1 0 00.95-.675L19.4 13" />
+                <circle cx="9" cy="21" r="1" fill="currentColor" />
+                <circle cx="17" cy="21" r="1" fill="currentColor" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-primary text-primary-foreground text-[10px] font-black w-5 h-5 flex items-center justify-center rounded-full shadow-lg border-2 border-background animate-pulse">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
 
             {/* Lang switcher */}
             <button

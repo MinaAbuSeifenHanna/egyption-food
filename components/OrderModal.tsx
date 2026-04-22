@@ -10,7 +10,7 @@ interface Props {
   onClose: () => void;
 }
 
-const WHATSAPP_NUM = "201020738214";
+const WHATSAPP_NUM = "14696841106";
 
 export default function OrderModal({ item, onClose }: Props) {
   const { lang, t, isRTL } = useLang();
@@ -71,11 +71,6 @@ export default function OrderModal({ item, onClose }: Props) {
           <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
           
           <div className="absolute bottom-6 start-6 end-12">
-            <div className="flex items-center gap-2 mb-2">
-               <div className="bg-primary/80 backdrop-blur-md text-primary-foreground text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border border-white/20">
-                {item.category[lang]}
-              </div>
-            </div>
             <h2 className="text-foreground font-black text-2xl md:text-3xl tracking-tighter leading-tight mb-1 drop-shadow-md">{item.name[lang]}</h2>
             <p className="text-secondary font-black text-lg drop-shadow-sm">{item.price}</p>
           </div>

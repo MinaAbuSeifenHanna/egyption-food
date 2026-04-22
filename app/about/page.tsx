@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useLang } from "@/context/LangContext";
 
+const WHATSAPP_URL = "https://wa.me/14696841106";
+const PHONE_NUM = "+1 (469) 684-1106";
+
 export default function AboutPage() {
   const { t, isRTL } = useLang();
 
   const services = [
-    { title: t("service1"), desc: t("service1Desc"), emoji: "🏠", color: "bg-primary/10 text-primary border-primary/20" },
     { title: t("service2"), desc: t("service2Desc"), emoji: "🎉", color: "bg-secondary/10 text-secondary border-secondary/20" },
     { title: t("service3"), desc: t("service3Desc"), emoji: "🍲", color: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
     { title: t("service4"), desc: t("service4Desc"), emoji: "📱", color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" },
@@ -74,7 +76,7 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tighter uppercase leading-none">{t("ourServices")}</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {services.map((service, i) => (
               <div key={i} className="bg-card p-10 rounded-[3rem] shadow-soft border border-border transition-all hover:-translate-y-2 text-center flex flex-col items-center group">
                 <div className={`w-20 h-20 rounded-3xl ${service.color} flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-transform duration-500 shadow-sm border`}>
@@ -101,14 +103,14 @@ export default function AboutPage() {
               <div className="flex flex-col items-center group">
                 <div className="w-20 h-20 bg-primary/10 rounded-[2.2rem] border border-primary/20 flex items-center justify-center text-3xl mb-6 shadow-soft group-hover:bg-primary group-hover:text-primary-foreground transition-all">📞</div>
                 <h4 className="font-black text-primary uppercase tracking-[0.2em] text-[10px] mb-4">{t("phone")}</h4>
-                <a href="tel:+201020738214" className="text-2xl md:text-3xl font-black hover:text-secondary transition-colors tracking-tighter">+20 102 073 8214</a>
+                <a href={`tel:${PHONE_NUM.replace(/\s/g, '')}`} className="text-2xl md:text-3xl font-black hover:text-secondary transition-colors tracking-tighter">{PHONE_NUM}</a>
               </div>
               
               {/* WhatsApp */}
               <div className="flex flex-col items-center group">
                 <div className="w-20 h-20 bg-green-500/10 rounded-[2.2rem] border border-green-500/20 flex items-center justify-center text-3xl mb-6 shadow-soft group-hover:bg-green-600 group-hover:text-background transition-all">💬</div>
                 <h4 className="font-black text-green-500 uppercase tracking-[0.2em] text-[10px] mb-4">{t("whatsapp")}</h4>
-                <a href="https://wa.me/201020738214" target="_blank" className="text-2xl md:text-3xl font-black hover:text-green-600 transition-colors tracking-tighter transition-all">+20 102 073 8214</a>
+                <a href={WHATSAPP_URL} target="_blank" className="text-2xl md:text-3xl font-black hover:text-green-600 transition-colors tracking-tighter transition-all">{PHONE_NUM}</a>
               </div>
 
               {/* Location */}

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { MenuItem } from "@/data/menuData";
 import { useLang } from "@/context/LangContext";
+import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 interface Props {
   item: MenuItem;
@@ -10,8 +12,15 @@ interface Props {
   onOrder?: (item: MenuItem) => void;
 }
 
-export default function MenuCard({ item, showOrderButton = false, onOrder }: Props) {
+export default function MenuCard({ item }: Props) {
   const { lang, t, isRTL } = useLang();
+  const { addToCart } = useCart();
+  const router = useRouter();
+
+  const handleBookNow = () => {
+    addToCart(item);
+    router.push("/checkout");
+  };
 
   return (
     <div
@@ -37,10 +46,6 @@ export default function MenuCard({ item, showOrderButton = false, onOrder }: Pro
           {item.price}
         </div>
         
-        {/* Category badge */}
-        <div className="absolute bottom-4 start-4 bg-primary/80 backdrop-blur-md text-primary-foreground text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border border-white/10">
-          {item.category[lang]}
-        </div>
       </div>
 
       {/* Content */}
@@ -52,18 +57,27 @@ export default function MenuCard({ item, showOrderButton = false, onOrder }: Pro
           {item.description[lang]}
         </p>
 
-        {showOrderButton && (
+        <div className="mt-6 flex flex-col gap-3">
           <button
-            onClick={() => onOrder?.(item)}
-            id={`order-btn-${item.id}`}
-            className="mt-6 w-full btn-gradient py-4 rounded-2xl text-[10px] shadow-xl flex items-center justify-center gap-2"
+            onClick={() => addToCart(item)}
+            className="w-full bg-muted border-2 border-border hover:border-primary/50 text-foreground py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all active:scale-95 flex items-center justify-center gap-2 group/btn"
+          >
+            <svg className="w-5 h-5 group-hover/btn:text-primary transition-colors font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.225 3.675A1 1 0 006.775 18h10.45a1 1 0 00.95-.675L19.4 13" />
+            </svg>
+            {t("addToCart")}
+          </button>
+          
+          <button
+            onClick={handleBookNow}
+            className="w-full btn-gradient py-4 rounded-2xl text-[10px] shadow-xl font-black uppercase tracking-widest flex items-center justify-center gap-2 transition-all active:scale-95 shadow-primary/20"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            {t("orderNowBtn")}
+            {t("bookNow")}
           </button>
-        )}
+        </div>
       </div>
     </div>
   );
